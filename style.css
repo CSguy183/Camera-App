@@ -146,3 +146,18 @@ video{
     font-size: 2rem;
     color: white;
 }
+
+.image_popup, .recording_popup{
+    position: fixed;
+    top: 0;
+    left : calc(100vw/2);
+    color: white;
+    opacity: 0;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    color: #444;
+    transition: opacity 0.3s;
+}

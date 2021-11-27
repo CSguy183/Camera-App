@@ -11,6 +11,8 @@ let zoomInContainer = document.querySelector('.zoom_in_container');
 let zoomOutContainer = document.querySelector('.zoom_out_container');
 let maxZoom = 3, minZoom = 1, currZoom = 1;
 let galleryBtn = document.querySelector('.gallery_container');
+let imagePopup = document.querySelector('.image_popup');
+let videoPopup = document.querySelector('.recording_popup');
 
 vidbutton.addEventListener('click', () => {
     let recordInnerDiv = document.querySelector('#record .inner');
@@ -56,11 +58,16 @@ navigator.mediaDevices.getUserMedia(constraints).then(function (mediaStream) {
 
         let url = URL.createObjectURL(blob);
         addMedia('video', blob);
-        let a = document.createElement('a');
-        a.href = url;
-        a.download = 'video.mp4';
-        a.click();
-        a.remove();
+        // let a = document.createElement('a');
+        // a.href = url;
+        // a.download = 'video.mp4';
+        // a.click();
+        // a.remove();
+
+        showPopup('vid');
+        setTimeout(() => {
+            hidePopup('vid');
+        }, 1500);
     });
 
 });
@@ -95,11 +102,16 @@ captureButton.addEventListener('click', () => {
 
         let url = canvas.toDataURL();
         addMedia('image', url);
-        let a = document.createElement('a');
-        a.href = url;
-        a.download = 'image.jpg';
-        a.click();
-        a.remove();
+        // let a = document.createElement('a');
+        // a.href = url;
+        // a.download = 'image.jpg';
+        // a.click();
+        // a.remove();
+
+        showPopup('img');
+        setTimeout(() => {
+            hidePopup('img');
+        },1500);
     }, 1000);
 });
 
@@ -138,3 +150,13 @@ galleryBtn.addEventListener('click', ()=>{
     // console.log('clicked');
     location.assign('gallery.html');
 });
+
+function showPopup(type){
+    if(type == 'img') imagePopup.style.opacity = 1;
+    else videoPopup.style.opacity = 1;
+}
+
+function hidePopup(type){
+    if(type == 'img') imagePopup.style.opacity = 0;
+    else videoPopup.style.opacity = 0;
+}
