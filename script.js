@@ -10,6 +10,7 @@ let body = document.querySelector('body');
 let zoomInContainer = document.querySelector('.zoom_in_container');
 let zoomOutContainer = document.querySelector('.zoom_out_container');
 let maxZoom = 3, minZoom = 1, currZoom = 1;
+let galleryBtn = document.querySelector('.gallery_container');
 
 vidbutton.addEventListener('click', () => {
     let recordInnerDiv = document.querySelector('#record .inner');
@@ -131,4 +132,9 @@ zoomInContainer.addEventListener('click', ()=>{
 zoomOutContainer.addEventListener('click', ()=>{
     currZoom = Math.max(currZoom-.1, 1.0);
     video.style.transform = `scale(${currZoom})`;
+});
+
+galleryBtn.addEventListener('click', ()=>{
+    // console.log('clicked');
+    location.assign('gallery.html');
 });

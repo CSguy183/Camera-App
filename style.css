@@ -4,7 +4,7 @@
 
 body{
     margin: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .video_container{
@@ -127,4 +127,22 @@ video{
     position: fixed;
     top: 0;
     opacity: 0.2;
+}
+
+.gallery_container{
+    height: 4rem;
+    width: 4rem;
+    position: fixed;
+    top: 30rem;
+    right: 3rem;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-photo-video{
+    font-size: 2rem;
+    color: white;
 }

@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+
+.media_card{
+    height: 22rem;
+    width: 20rem;
+    border: 1px solid;
+}
+
+.media_container{
+    height: 80%;
+    width: 100%;
+    border: 1px solid;
+}
+
+.action_container{
+    height: 20%;
+    width: 100%;
+    border: 1px solid;
+    display: flex;
+}
+
+.download_container, .delete_container{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download_container{
+    border-right: 1px solid;
+}
+
+.fas{
+    font-size: 2rem;
+}
