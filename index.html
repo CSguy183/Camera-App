@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+    crossorigin="anonymous"/>
+
+
+</head>
+
+<body>
+
+    <div class="video_container">
+        <video autoplay controls style="transform: scale(1);" > </video>
+    </div>
+    
+    <!-- autoplay -> to play video from src by default -->
+    <!-- controls -> provide play, pause, timer control to user -->
+
+    <button id='record'>
+        <div class = 'inner' ></div>
+    </button>
+    <button id='capture'>
+        <div class = 'inner' ></div>
+    </button>
+
+    <div class="filter_container">
+        <div class="filter" style="background-color: hsla(0, 85%, 82%, 0.623);" ></div>
+        <div class="filter" style="background-color: #75c6fca9;">
+        </div>
+        <div class="filter" style="background-color: #fab54596;">
+        </div>
+        <div class="filter" style="background-color: #7f8c8da6;">
+        </div>
+        <div class="filter" style="background-color: #9c59b698;">
+        </div>
+        <div class="filter">
+        </div>
+    </div>
+
+    <div class="zoom_container">
+        <div class="zoom_in_container">
+            <i class="fas fa-plus"></i>
+        </div>
+        <div class="zoom_out_container">
+            <i class="fas fa-minus"></i>
+        </div>
+    </div>
+
+    <script src="dbScript.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

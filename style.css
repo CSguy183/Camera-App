@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+.video_container{
+    height: 100vh;
+    width:100vw;
+    overflow: hidden;
+    background-color: black;
+    /* background-color: tr; */
+}
+
+video{
+    height: 100%;
+    width: 100%;
+}
+
+#record, #capture{
+    position: fixed;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: none;
+    right: 2rem;
+    background-color: black;
+    border: 5px solid white;
+    z-index: 1;
+}
+
+#record{
+    top: 40vh;
+}
+
+#capture{
+    top: 50vh;
+}
+
+.inner{
+    height: 80%;
+    width: 89%;
+    border-radius: 70%;
+    margin: auto;
+}
+
+#record .inner{
+    background-color: red;   
+}
+
+#capture .inner{
+    background-color: white;
+}
+
+.captureAnimation{
+    animation: scale .5s;
+}
+
+.recordAnimation{
+    animation: scale 1s infinite;
+}
+
+@keyframes scale {
+    0%{
+        transform: scale(1);
+    }
+    
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.filter_container{
+    height: 36rem;
+    width: 5rem;
+    position: fixed;
+    top: calc( (100vh - 36rem) / 2 );
+    left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+
+.filter{
+    height: 5rem;
+    width: 5rem;
+    background-image:url('https://static5.depositphotos.com/1008855/444/i/600/depositphotos_4446869-stock-photo-white-flower-background.jpg');
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+.zoom_container{
+    height: 6rem;
+    width:3rem;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background-color: black;
+    border: 1px solid white;
+    z-index: 1;
+}
+
+.zoom_container>*{
+    color: white;
+    height: 50%;
+    width: 100%;
+}
+.zoom_in_container, .zoom_out_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoom_in_container{
+    border-bottom: .1px solid white;
+}
+
+.filter_class{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    opacity: 0.2;
+}

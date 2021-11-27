@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    
+    <!-- canvas used for drawing, inbuilt in browser -->
+    <canvas></canvas>
+
+    <script>
+        let canvas = document.querySelector('canvas');
+        // setting canvas to occupy whole screen
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        let ctx = canvas.getContext('2d');  // making 2d drawing
+        
+        let img = document.createElement('img');
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/450px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg';
+        img.addEventListener('load', ()=>{
+            ctx.drawImage(img, 500, 0);   
+            ctx.fillStyle = 'red';
+            ctx.fillRect(0,0,canvas.width, canvas.height);     // draw an image on canvas from cooridnates 500, 0
+        });
+        
+        // ctx.fillStyle = 'red';
+        // ctx.fillRect(0,0,canvas.width, canvas.height);
+        
+        // canvas.style.zIndex = 3;
+        // img.style.zIndex=-1;
+
+        // ctx.beginPath();      // a drawing is like a path(component)
+        // ctx.moveTo(100,50);   // starting point of path, cursor moves here
+        // ctx.lineTo(300,400);  // draw line till this point
+        // ctx.strokeStyle = 'blue';   // set color of line as blue
+        // ctx.stroke();              // making line visible to user
+
+        // ctx.beginPath();          // a new path(component) , if we comment this line, previous line will also be colored red.
+        // ctx.moveTo(300,400);
+        // ctx.lineTo(600, 50);
+        // ctx.strokeStyle = 'red';
+        // ctx.stroke();
+
+
+    </script>
+
+</body>
+</html>

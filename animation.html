@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+        }
+
+        .box1{
+            height: 15rem;
+            width: 15rem;
+            background-color: yellow;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: scale 2s infinite;
+        }
+
+        @keyframes scale {
+            0%{
+                transform: scale(1);
+                border-radius: 0%;
+                /* background-color: red; */
+                opacity: 0.5;
+            }
+            50%{
+                transform: scale(1.5);
+                border-radius: 50%;
+            }
+            100%{
+                transform: scale(1);
+                border-radius: 0%;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+</body>
+</html>

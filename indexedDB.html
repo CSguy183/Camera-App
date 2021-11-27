@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDb</title>
+</head>
+
+<body>
+
+    <input type="text" id='name' placeholder="database name" value=''>
+    <input type="number" id='version' placeholder="database version" value=''>
+    <button id= 'create' >Create DB</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <input type="text" name="" id="notes" value="" placeholder="Add Notes">
+    <button id = 'add' >Add</button>
+
+    <script>
+        let name = document.querySelector('#name');
+        let version = document.querySelector('#version');
+        let createBtn = document.querySelector('#create');
+        let notes = document.querySelector('#notes') ;
+        let addBtn = document.querySelector('#add');
+
+        addBtn.addEventListener('click', ()=>{
+            let note = notes.value;
+
+            if(!dbAccess){
+                alert('give db access mf');
+                return;
+            }
+
+            let transaction = dbAccess.transaction('cs', 'readwrite');
+            let cs = transaction.objectStore('cs');
+            let entry = {
+                "nId" : Date.now(),
+                'note' : note
+            }
+
+            cs.add(entry);
+            notes.value="";
+        });
+
+        // version is used to indicate changes in db
+        let dbName, dbVersion, dbAccess;
+
+        createBtn.addEventListener('click', () => {
+            dbName = name.value;
+            dbVersion = version.value;
+
+            // open db
+            let request = indexedDB.open(dbName, dbVersion);
+            
+            // following 3 events can occur
+            request.addEventListener('success', () => {
+                alert('db created successfully');
+                dbAccess = request.result;
+                viewNotes();
+            });
+
+            request.addEventListener('upgradeneeded', () => {
+                alert('upgrade needed');
+                // result gives access to db
+                let db = request.result;
+                db.createObjectStore('cs', {keyPath : 'nId'});
+            });
+
+            request.addEventListener('error', () => {
+                alert('error');
+            });
+
+        });
+
+        function viewNotes(){
+            let transaction = dbAccess.transaction('cs', 'readonly');
+            let cs = transaction.objectStore('cs');
+            let request = cs.openCursor();
+
+            request.addEventListener('success', ()=>{
+                let cursor = request.result;
+                if(cursor){
+                    console.log(cursor.value.note);
+                    cursor.continue();
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
